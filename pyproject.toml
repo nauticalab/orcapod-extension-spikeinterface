@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling>=1.21.0", "hatch-vcs>=0.4.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "orcapod-extension-spikeinterface"
+description = "OrcaPod extension for SpikeInterface types (BaseRecording, BaseSorting, Motion, SortingAnalyzer)"
+dynamic = ["version"]
+dependencies = [
+    "orcapod>=0.1",
+    "spikeinterface>=0.101",
+]
+readme = "README.md"
+requires-python = ">=3.11.0"
+license = { text = "MIT License" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/nauticalab/orcapod-extension-spikeinterface"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "src/orcapod_extension_spikeinterface/_version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/orcapod_extension_spikeinterface"]
+
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+    "pytest-cov>=6.1.1",
+    "ruff>=0.14.4",
+    "pre-commit>=4.4.0",
+    "pre-commit-hooks>=6.0.0",
+    "pip-licenses>=5.0.0",
+]
+
+
+[tool.coverage.run]
+omit = []
+
+[tool.coverage.report]
+exclude_also = [
+    "if TYPE_CHECKING:",
+]
