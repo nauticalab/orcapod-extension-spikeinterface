@@ -47,12 +47,12 @@ import numpy as np
 import polars as pl
 import pyarrow as pa
 
-from orcapod.extension_types.base_logical_type import BaseLogicalType
-from orcapod.extension_types.registry import make_arrow_extension_type, make_polars_extension_type
+from orcapod.logical_types.base_logical_type import BaseLogicalType
+from orcapod.logical_types.registry import make_arrow_extension_type, make_polars_extension_type
 from orcapod.types import ContentHash
 
 if TYPE_CHECKING:
-    from orcapod.extension_types.protocols import TypeConverterProtocol
+    from orcapod.logical_types.protocols import TypeConverterProtocol
     from orcapod.protocols.hashing_protocols import SemanticHasherProtocol
     from orcapod.contexts import DataContext
 
